@@ -1,8 +1,12 @@
 package com.springs;
 
-import com.spring.Cars.Hyundai;
-import com.spring.Cars.Swift;
-import com.spring.interfaces.Car;
+
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.springs.Cars.Hyundai;
+import com.springs.Cars.Swift;
+import com.springs.interfaces.Car;
 
 public class App {
 
@@ -12,8 +16,17 @@ public class App {
 		Car swift=new Swift();
 		Car hyundai = new Hyundai();
 		
-		System.out.println(swift.specs());
-		System.out.println(hyundai.specs());
+		//System.out.println(swift.specs());
+		//System.out.println(hyundai.specs());
+		
+		
+		AnnotationConfigApplicationContext context =
+			new	AnnotationConfigApplicationContext(AppConfig.class);
+		
+		Car myCar = context.getBean("swift",Car.class);
+		System.out.println(myCar.specs());
+		context.close();
+		
 
 	}
 

@@ -1,4 +1,4 @@
-package com.spring.interfaces;
+package com.springs.interfaces;
 
 public interface Car {
 
